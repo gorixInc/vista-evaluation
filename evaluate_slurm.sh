@@ -1,20 +1,19 @@
 #!/bin/bash
-# NOTE: before running this do `conda activate itn2`.
+# NOTE: before running this do `conda activate vista`.
+# Example 'sbatch evaluate_slurm.sh --model pilotnet.onnx --traces trace_forward --traces-root ./traces/ --save-video'
 # run as `sbatch vista_evaluate.sh`
 
 # Job Details
 #SBATCH --partition=gpu
 #SBATCH -J vista
+#SBATCH --output=./vista_slurm/%j-slurm-run.txt 
+#SBATCH --error=./vista_slurm/%j-slurm-run.err
 
 # Resources
 #SBATCH -t 23:59:00
-#SBATCH --ntasks=1
-#SBATCH --mem=40G
-#SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu:tesla:1
 #SBATCH --exclude=falcon2
 
 # Actual job command(s)
-conda activate vista
 module load ffmpeg
-srun python -u evaluate.py "$@"
+srun python -u vista_eval/evaluate.py "$@"
