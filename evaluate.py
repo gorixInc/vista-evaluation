@@ -5,6 +5,9 @@ import dotenv
 dotenv.load_dotenv()
 os.environ['PYOPENGL_PLATFORM'] = 'egl'
 os.environ['EGL_DEVICE_ID'] = os.environ.get('CUDA_AVAILABLE_DEVICES', '0')
+#os.environ["DISPLAY"] = ":0"
+#os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
+
 
 import uuid
 import time

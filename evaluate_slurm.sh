@@ -5,7 +5,6 @@
 # Job Details
 #SBATCH --partition=gpu
 #SBATCH -J vista
-#SBATCH -o ./runs/%j-slurm-run.txt # STDOUT/STDERR
 
 # Resources
 #SBATCH -t 23:59:00
@@ -16,5 +15,6 @@
 #SBATCH --exclude=falcon2
 
 # Actual job command(s)
+conda activate vista
 module load ffmpeg
 srun python -u evaluate.py "$@"
