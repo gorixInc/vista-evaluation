@@ -1,7 +1,7 @@
 #!/bin/bash
 # NOTE: before running this do `conda activate vista`.
-# Example 'sbatch evaluate_slurm.sh --model pilotnet.onnx --traces trace_forward --traces-root ./traces/ --save-video'
-# run as `sbatch vista_evaluate.sh`
+# NOTE: Run from vista_eval directory
+# Example: 'sbatch evaluate_slurm.sh --model ./models/untrained_pilotnet.onnx --traces trace_forward --traces-root ./traces/ --save-video'
 
 # Job Details
 #SBATCH --partition=gpu
